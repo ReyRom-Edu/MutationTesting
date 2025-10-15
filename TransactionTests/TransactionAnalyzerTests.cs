@@ -1,4 +1,4 @@
-using TransactionLib;
+п»їusing TransactionLib;
 
 public class TransactionAnalyzerTests
 {
@@ -12,7 +12,7 @@ public class TransactionAnalyzerTests
             Timestamp = DateTime.Now
         };
 
-        Assert.StartsWith("Ошибка", TransactionAnalyzer.AnalyzeTransaction(tx));
+        Assert.StartsWith("РћС€РёР±РєР°", TransactionAnalyzer.AnalyzeTransaction(tx));
     }
 
     [Fact]
@@ -26,7 +26,7 @@ public class TransactionAnalyzerTests
             IsVipClient = false
         };
 
-        Assert.Contains("превышено количество", TransactionAnalyzer.AnalyzeTransaction(tx));
+        Assert.Contains("РїСЂРµРІС‹С€РµРЅРѕ РєРѕР»РёС‡РµСЃС‚РІРѕ", TransactionAnalyzer.AnalyzeTransaction(tx));
     }
 
     [Fact]
@@ -40,7 +40,7 @@ public class TransactionAnalyzerTests
             IsVipClient = true
         };
 
-        Assert.Equal("Транзакция допустима.", TransactionAnalyzer.AnalyzeTransaction(tx));
+        Assert.Equal("РўСЂР°РЅР·Р°РєС†РёСЏ РґРѕРїСѓСЃС‚РёРјР°.", TransactionAnalyzer.AnalyzeTransaction(tx));
     }
 
     [Fact]
@@ -50,13 +50,13 @@ public class TransactionAnalyzerTests
         {
             Amount = 1000,
             Kind = TransactionKind.Transfer,
-            FromAccountType = "Текущий",
-            ToAccountType = "Сберегательный",
+            FromAccountType = "РўРµРєСѓС‰РёР№",
+            ToAccountType = "РЎР±РµСЂРµРіР°С‚РµР»СЊРЅС‹Р№",
             IsInternal = false,
             IsVipClient = false
         };
 
-        Assert.StartsWith("Комиссия", TransactionAnalyzer.AnalyzeTransaction(tx));
+        Assert.StartsWith("РљРѕРјРёСЃСЃРёСЏ", TransactionAnalyzer.AnalyzeTransaction(tx));
     }
 
     [Fact]
@@ -70,7 +70,7 @@ public class TransactionAnalyzerTests
             IsVipClient = false
         };
 
-        Assert.StartsWith("Ограничение: превышена", TransactionAnalyzer.AnalyzeTransaction(tx));
+        Assert.StartsWith("РћРіСЂР°РЅРёС‡РµРЅРёРµ: РїСЂРµРІС‹С€РµРЅР°", TransactionAnalyzer.AnalyzeTransaction(tx));
     }
 
     [Fact]
@@ -84,7 +84,7 @@ public class TransactionAnalyzerTests
             IsInternal = true
         };
 
-        Assert.StartsWith("Ограничение: банкоматы", TransactionAnalyzer.AnalyzeTransaction(tx));
+        Assert.StartsWith("РћРіСЂР°РЅРёС‡РµРЅРёРµ: Р±Р°РЅРєРѕРјР°С‚С‹", TransactionAnalyzer.AnalyzeTransaction(tx));
     }
 
     [Fact]
@@ -99,7 +99,7 @@ public class TransactionAnalyzerTests
             Channel = "Office"
         };
 
-        Assert.Equal("Транзакция допустима.", TransactionAnalyzer.AnalyzeTransaction(tx));
+        Assert.Equal("РўСЂР°РЅР·Р°РєС†РёСЏ РґРѕРїСѓСЃС‚РёРјР°.", TransactionAnalyzer.AnalyzeTransaction(tx));
     }
 
     [Fact]
@@ -114,7 +114,7 @@ public class TransactionAnalyzerTests
             Timestamp = DateTime.Now
         };
 
-        Assert.StartsWith("Ошибка", TransactionAnalyzer.AnalyzeTransaction(tx));
+        Assert.StartsWith("РћС€РёР±РєР°", TransactionAnalyzer.AnalyzeTransaction(tx));
     }
 
 }

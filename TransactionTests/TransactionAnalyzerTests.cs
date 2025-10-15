@@ -66,7 +66,7 @@ public class TransactionAnalyzerTests
         {
             Amount = 300_000,
             Kind = TransactionKind.Transfer,
-            DailyTransactionTotal = 250_000,
+            DailyTransactionTotal = 1_300_000,
             IsVipClient = false
         };
 

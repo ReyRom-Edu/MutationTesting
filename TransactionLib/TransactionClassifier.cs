@@ -49,7 +49,7 @@
                 return "Ограничение: превышено количество операций в день.";
 
             // Проверка суточного лимита по сумме транзакций для non-VIP.
-            if (tx.DailyTransactionTotal + tx.Amount > 500_000 && !tx.IsVipClient)
+            if (tx.DailyTransactionTotal + tx.Amount > 1_500_000 && !tx.IsVipClient)
                 return "Ограничение: превышена дневная сумма транзакций.";
 
             // Банкоматы не поддерживают крупные транзакции.
